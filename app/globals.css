@@ -37,7 +37,7 @@
 
 @layer components {
   .bubble {
-    @apply bg-[rgb(var(--primary-blue)_/_0.2)] backdrop-blur-sm rounded-full;
+    @apply bg-primary-blue/20 backdrop-blur-sm rounded-full;
   }
 
   .gradient-blue {
