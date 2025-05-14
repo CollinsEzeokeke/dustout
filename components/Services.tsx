@@ -3,27 +3,40 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const Services = () => {
-  const services = [
-    {
-      title: 'Regular Cleaning',
-      description: 'Weekly or bi-weekly cleaning services to maintain a spotless environment.',
-      price: 'From $80/visit'
-    },
-    {
-      title: 'Deep Cleaning',
-      description: 'Thorough cleaning of all areas, including hard-to-reach spaces and detailed attention.',
-      price: 'From $200/visit'
-    },
-    {
-      title: 'Move In/Out Cleaning',
-      description: 'Comprehensive cleaning service for moving in or out of properties.',
-      price: 'From $250/visit'
-    }
-  ];
+const services = [
+  {
+    id: 1,
+    title: 'Residential Cleaning',
+    description: 'Professional home cleaning services tailored to your needs',
+    image: '/images/cleaning-tools-1.png',
+    iconBg: 'bg-light-blue',
+  },
+  {
+    id: 2,
+    title: 'Industrial Cleaning',
+    description: 'Specialized cleaning for industrial spaces and factories',
+    image: '/images/worker-cleaning.png',
+    iconBg: 'bg-mint-green',
+  },
+  {
+    id: 3,
+    title: 'Fumigation',
+    description: 'Effective pest control and fumigation services',
+    image: '/images/cleaning-tools-2.png',
+    iconBg: 'bg-cyan',
+  },
+  {
+    id: 4,
+    title: 'Landscaping',
+    description: 'Professional landscape design and maintenance',
+    image: '/images/modern-house.png',
+    iconBg: 'bg-light-blue',
+  },
+];
 
+const ServicesSection = () => {
   return (
-    <section id="services" className="py-20 bg-bg-light">
+    <section id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -32,32 +45,46 @@ const Services = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-majer text-primary-blue mb-4">Our Services</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Professional cleaning services tailored to your needs
+          <h2 className="font-majer text-5xl text-primary-blue mb-4">Our Services</h2>
+          <p className="text-gray-600 max-w-3xl mx-auto">
+            We provide a comprehensive range of cleaning and maintenance services for residential and commercial clients
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
+              key={service.id}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="bg-bg-light rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
             >
-              <div className="h-12 w-12 bg-mint-green rounded-full mb-6 flex items-center justify-center">
-                {/* Icon placeholder */}
-                <div className="h-6 w-6 bg-primary-blue rounded-full"></div>
+              <div className="relative h-48">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-primary-blue mb-4">{service.title}</h3>
-              <p className="text-gray-600 mb-6">{service.description}</p>
-              <p className="text-xl font-semibold text-primary-blue">{service.price}</p>
-              <button className="mt-6 w-full bg-primary-blue text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition-all">
-                Book Now
-              </button>
+              <div className="p-6">
+                <div className={`${service.iconBg} w-12 h-12 rounded-full flex items-center justify-center mb-4`}>
+                  <svg className="w-6 h-6 text-primary-blue" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-majer text-primary-blue mb-2">{service.title}</h3>
+                <p className="text-gray-600 mb-4">{service.description}</p>
+                <div className="flex">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -66,16 +93,19 @@ const Services = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 text-center"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-center mt-12"
         >
-          <button className="bg-white text-primary-blue border-2 border-primary-blue px-8 py-3 rounded-full hover:bg-primary-blue hover:text-white transition-all">
-            View All Services
-          </button>
+          <a 
+            href="#booking" 
+            className="bg-primary-blue text-white px-8 py-3 rounded-full font-majer inline-block hover:bg-dark-blue transition-colors"
+          >
+            Book a Service
+          </a>
         </motion.div>
       </div>
     </section>
   );
 };
 
-export default Services;
+export default ServicesSection;

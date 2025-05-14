@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import Contact from "@/components/Contact";
+import ServicesSection from "@/components/Services";
+import AboutSection from "@/components/About";
+import ContactSection from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,13 +14,14 @@ export default function Home() {
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#176FD4] to-[#0C3A6E]">
+        <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-primary-blue to-dark-blue">
           {/* Background Image */}
           <Image
-            src="/images/smoky-background.png"
+            src="/images/smoky-watercolor-background.png"
             alt="Smoky Background"
             fill
             className="object-cover opacity-50"
+            priority
           />
 
           {/* Content Container */}
@@ -28,7 +29,7 @@ export default function Home() {
             {/* Hero Content */}
             <div className="text-center">
               <motion.h1 
-                className="font-majer text-7xl text-white leading-tight mb-8"
+                className="font-majer text-5xl md:text-7xl text-white leading-tight mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -38,14 +39,25 @@ export default function Home() {
                 Have To
               </motion.h1>
 
-              <motion.button
-                className="bg-white text-[#176FD4] font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all"
+              <motion.div
+                className="flex flex-col sm:flex-row justify-center gap-4 mt-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                Book Now
-              </motion.button>
+                <a 
+                  href="#booking" 
+                  className="bg-mint-green text-primary-blue font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all"
+                >
+                  Book Us
+                </a>
+                <a 
+                  href="#get-started" 
+                  className="bg-white text-primary-blue font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-opacity-90 transition-all"
+                >
+                  Get Started
+                </a>
+              </motion.div>
             </div>
 
             {/* Decorative Bubbles */}
@@ -76,9 +88,9 @@ export default function Home() {
         </section>
 
         {/* Other Sections */}
-        <About />
-        <Services />
-        <Contact />
+        <AboutSection />
+        <ServicesSection />
+        <ContactSection />
       </main>
       <Footer />
     </>
