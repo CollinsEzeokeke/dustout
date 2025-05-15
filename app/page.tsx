@@ -7,6 +7,8 @@ import ContactSection from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import BookingForm from '@/components/BookingForm';
+import PricingSection from '@/components/PricingSection';
+import WhyChooseUs from '@/components/WhyChooseUs';
 
 export default function Home() {
   return (
@@ -18,9 +20,12 @@ export default function Home() {
         <AboutSection />
         <ServicesSection />
         <BookingForm />
-        {/* Booking section */}
-
-        {/* contact section */}
+        {/* pricing section */}
+        <PricingSection />
+        {/* why choose us section */}
+        <WhyChooseUs />
+        {/*  how to book us section*/}
+        
         <ContactSection />
       </main>
       <Footer />
