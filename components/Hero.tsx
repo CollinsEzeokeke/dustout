@@ -1,72 +1,69 @@
 "use client";
 
+import React from 'react';
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
+// Services array for the scrolling ribbons
+const services = [
+  "Residential Cleaning",
+  "Commercial Cleaning",
+  "Fumigation",
+  "Landscaping",
+  "Carpet Cleaning",
+  "Post-Construction Cleaning",
+];
+
+// Client images 
+const clients = ["/images/person1.jpg", "/images/person2.jpg", "/images/person3.jpg"];
+
 export default function Hero() {
-  // Array of client avatars
-  const clients = [
-    "/images/person1.jpg",
-    "/images/person2.jpg",
-    "/images/person3.jpg",
-    "/images/person1.jpg",
-  ];
-
-  // Services offered
-  const services = [
-    "Residential Cleaning",
-    "Industrial Cleaning",
-    "Fumigation",
-    "Landscaping",
-  ];
-
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-b from-sky-100 to-sky-50">
-      {/* Background Image with Bubbles */}
-      <Image
-        src="/images/smoky-background.png"
-        alt="Smoky Background"
-        fill
-        className="object-cover z-0"
-        priority
-      />
-
-      {/* Scattered bubbles for mobile view */}
-      <div className="absolute inset-0 z-10 pointer-events-none md:hidden">
+    <section className="relative h-screen overflow-hidden bg-blue-50">
+      {/* Background bubbles */}
+      <div className="absolute inset-0 pointer-events-none">
         <Image
           src="/images/bubble.png"
-          alt="Bubble Top Left"
-          width={150}
-          height={150}
-          className="absolute top-[15%] left-[5%] opacity-40"
+          alt="Bubble"
+          width={200}
+          height={200}
+          className="absolute top-20 left-10 opacity-30"
         />
         <Image
           src="/images/bubble.png"
-          alt="Bubble Top Right"
+          alt="Bubble"
           width={100}
           height={100}
-          className="absolute top-[10%] right-[10%] opacity-30"
+          className="absolute top-40 right-20 opacity-20"
         />
         <Image
           src="/images/bubble.png"
-          alt="Bubble Middle Left"
+          alt="Bubble"
+          width={150}
+          height={150}
+          className="absolute bottom-20 left-1/4 opacity-50"
+        />
+        <Image
+          src="/images/bubble.png"
+          alt="Bubble"
           width={80}
           height={80}
-          className="absolute top-[40%] left-[15%] opacity-50"
+          className="absolute bottom-40 right-1/3 opacity-30"
         />
+        {/* Big bubble center */}
         <Image
           src="/images/bubble.png"
-          alt="Bubble Bottom Right"
-          width={120}
-          height={120}
-          className="absolute bottom-[35%] right-[5%] opacity-40"
+          alt="Bubble"
+          width={400}
+          height={400}
+          className="absolute -right-20 top-[20%] transform rotate-12 opacity-30"
         />
+        {/* Smallest bubble */}
         <Image
           src="/images/bubble.png"
-          alt="Bubble Bottom Left"
-          width={90}
-          height={90}
+          alt="Bubble"
+          width={50}
+          height={50}
           className="absolute bottom-[25%] left-[20%] opacity-30"
         />
       </div>
@@ -80,7 +77,7 @@ export default function Hero() {
               We Clean;
             </span>
             <span className="text-4xl sm:text-5xl text-blue-700 block mt-1">
-              So You Don't
+              So You Don&apos;t
             </span>
             <span className="text-4xl sm:text-5xl text-blue-700 block mt-1">
               Have To
@@ -158,7 +155,7 @@ export default function Hero() {
                 </span>
                 <br />
                 <span className="text-5xl md:text-6xl text-blue-700">
-                  So You Don't
+                  So You Don&apos;t
                 </span>
                 <br />
                 <span className="text-5xl md:text-6xl text-blue-700">

@@ -64,14 +64,14 @@ const AboutSection = () => {
             </div>
 
             <p className="text-gray-600 mb-6 leading-relaxed text-sm">
-              At DustOut, we are the UK's top cleaning agency, specializing in
+              At DustOut, we are the UK&apos;s top cleaning agency, specializing in
               industrial cleaning, residential cleaning, fumigation, and
               landscaping.
               <br />
               <br />
               Our expert team delivers reliable, eco-friendly services that meet
               the highest standards, transforming spaces with precision and
-              care. Whether it's deep cleaning, pest control, or outdoor
+              care. Whether it&apos;s deep cleaning, pest control, or outdoor
               makeovers, DustOut ensures cleaner, healthier, and more beautiful
               environments across the UK.
             </p>
@@ -259,14 +259,14 @@ const AboutSection = () => {
               </h2>
 
               <p className="text-gray-600 mb-8 leading-relaxed">
-                At DustOut, we are the UK's top cleaning agency, specializing in
+                At DustOut, we are the UK&apos;s top cleaning agency, specializing in
                 industrial cleaning, residential cleaning, fumigation, and
                 landscaping.
                 <br />
                 <br />
                 Our expert team delivers reliable, eco-friendly services that
                 meet the highest standards, transforming spaces with precision
-                and care. Whether it's deep cleaning, pest control, or outdoor
+                and care. Whether it&apos;s deep cleaning, pest control, or outdoor
                 makeovers, DustOut ensures cleaner, healthier, and more
                 beautiful environments across the UK.
               </p>

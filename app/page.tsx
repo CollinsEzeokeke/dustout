@@ -1,7 +1,5 @@
 'use client';
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import ServicesSection from "@/components/Services";
 import AboutSection from "@/components/About";
