@@ -9,6 +9,7 @@ import Hero from "@/components/Hero";
 import BookingForm from "@/components/BookingForm";
 import PricingSection from "@/components/PricingSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
+import HowToBookUs from "@/components/HowToBookUs";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         {/* why choose us section */}
         <WhyChooseUs />
         {/*  how to book us section*/}
+        <HowToBookUs />
 
         <ContactSection />
       </main>

@@ -1,12 +1,18 @@
 import React from 'react';
 
-const FormIcon: React.FC<{ className?: string }> = ({ className = "" }) => {
+interface FormIconProps {
+  className?: string;
+}
+
+const FormIcon: React.FC<FormIconProps> = ({ className }) => {
   return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-      <path d="M32.5 5H7.5C6.11929 5 5 6.11929 5 7.5V32.5C5 33.8807 6.11929 35 7.5 35H32.5C33.8807 35 35 33.8807 35 32.5V7.5C35 6.11929 33.8807 5 32.5 5Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12.5 15H27.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12.5 20H27.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12.5 25H22.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5zM19 19.09H5V4.91h14v14.18zM6 15h12v2H6zm0-4h12v2H6zm0-4h12v2H6z" />
     </svg>
   );
 };
