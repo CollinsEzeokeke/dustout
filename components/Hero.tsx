@@ -33,7 +33,7 @@ export default function Hero() {
       />
 
       {/* Scattered bubbles for mobile view */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
+      <div className="absolute inset-0 z-10 pointer-events-none md:hidden">
         <Image
           src="/images/bubble.png"
           alt="Bubble Top Left"
@@ -71,10 +71,10 @@ export default function Hero() {
         />
       </div>
 
-      {/* Main Content - Mobile first approach */}
-      <div className="relative z-20 mx-auto px-5 pt-24 pb-16 flex flex-col h-screen">
-        {/* Hero Text Content */}
-        <div className="flex-1 flex flex-col justify-center mb-6">
+      {/* Mobile layout - hidden on medium screens and up */}
+      <div className="md:hidden relative z-20 mx-auto px-5 pt-24 pb-16 flex flex-col h-screen">
+        {/* Hero Text Content - Centered */}
+        <div className="flex-1 flex flex-col justify-center items-center text-center mb-6">
           <h1 className="font-bold leading-tight mb-6">
             <span className="text-4xl sm:text-5xl text-green-500 block">
               We Clean;
@@ -87,7 +87,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          <div className="flex flex-row gap-4 mt-6">
             <Link
               href="#get-started"
               className="bg-green-500 text-white font-semibold px-8 py-3 rounded-full text-center shadow-lg hover:bg-opacity-90 transition-all"
@@ -103,18 +103,18 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Hero Image - Centered on mobile */}
-        <div className="flex-1 relative min-h-[280px] max-h-[350px] mx-auto w-full">
+        {/* Hero Image - Centered and wider */}
+        <div className="flex justify-center items-center relative min-h-[280px] w-[90%] max-w-[450px] mx-auto">
           <Image
             src="/images/rectangle-13.png"
             alt="Cleaning Tools"
             fill
-            className="object-contain"
+            className="object-cover scale-150 transfrom -translate-y-[40%] -translate-x-[40%]"
             priority
           />
         </div>
 
-        {/* Service Ribbons */}
+        {/* Service Ribbons for Mobile */}
         <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden">
           {/* Blue Ribbon */}
           <div className="relative bg-blue-600 py-2 transform -rotate-2 z-10">
@@ -147,7 +147,7 @@ export default function Hero() {
       </div>
 
       {/* Desktop layout - only visible on medium screens and up */}
-      <div className="hidden md:block">
+      <div className="hidden md:block relative h-screen">
         <div className="relative z-10 mx-auto max-w-7xl px-4 pt-24 pb-16 sm:px-6 lg:px-8 top-48">
           <div className="grid grid-cols-2 gap-8 items-center">
             {/* Left Column - Text Content */}
@@ -225,9 +225,9 @@ export default function Hero() {
         <Image
           src="/images/bubble.png"
           alt="Bubble Large"
-          width={300}
-          height={300}
-          className="absolute top-20 right-[10%] opacity-50 z-0"
+          width={600}
+          height={600}
+          className="absolute -top-[15%] rotate-12 scale-150 transform left-[60%] opacity-60"
         />
         <Image
           src="/images/bubble.png"
@@ -236,6 +236,37 @@ export default function Hero() {
           height={600}
           className="object-cover absolute top-[50%] rotate-6 opacity-50 scale-150 transform left-[10%] z-0"
         />
+        
+        {/* Service Ribbons for Desktop */}
+        <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden h-[40%] flex flex-col justify-center items-center">
+          {/* Blue Ribbon */}
+          <div className="relative bg-blue-600 py-2 transform -rotate-3 scale-110 z-10 h-11 w-[110%]">
+            <div className="flex space-x-5 animate-marquee whitespace-nowrap">
+              {Array(5)
+                .fill(services)
+                .flat()
+                .map((service, i) => (
+                  <span key={i} className="text-white mx-4 font-medium">
+                    <span className="text-white">+</span> {service}
+                  </span>
+                ))}
+            </div>
+          </div>
+          
+          {/* Green Ribbon */}
+          <div className="relative bg-green-500 py-2 transform rotate-6 scale-110 h-11 w-[110%] mt-2">
+            <div className="flex space-x-5 animate-marquee2 whitespace-nowrap">
+              {Array(5)
+                .fill(services)
+                .flat()
+                .map((service, i) => (
+                  <span key={i} className="text-white mx-4 font-medium">
+                    <span className="text-white">+</span> {service}
+                  </span>
+                ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -74,16 +74,16 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile menu button - simplified to match design */}
+          {/* Mobile menu button - with green, blue, green lines */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
-              className="flex flex-col space-y-1.5 p-2 bg-green-500 rounded"
+              className="flex flex-col space-y-1.5 p-2 rounded"
             >
-              <span className="block w-6 h-1 bg-white rounded"></span>
-              <span className="block w-6 h-1 bg-white rounded"></span>
-              <span className="block w-6 h-1 bg-white rounded"></span>
+              <span className="block w-6 h-[3px] border-2 border-green-500 rounded-full"></span>
+              <span className="block w-6 h-[3px] border-2 border-blue-600 rounded-full"></span>
+              <span className="block w-6 h-[3px] border-2 border-green-500 rounded-full"></span>
             </button>
           </div>
         </div>
