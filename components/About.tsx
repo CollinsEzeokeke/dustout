@@ -1,12 +1,15 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { CheckIcon } from '@heroicons/react/24/solid';
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { CheckIcon } from "@heroicons/react/24/solid";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="relative py-20 bg-gradient-to-b from-sky-50 to-white overflow-hidden">
+    <section
+      id="about"
+      className="relative py-20 bg-gradient-to-b from-sky-50 to-white overflow-hidden"
+    >
       {/* Top fade effect for smooth transition */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-sky-50 to-transparent pointer-events-none"></div>
 
@@ -43,7 +46,131 @@ const AboutSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        {/* Mobile layout - Text first, then images */}
+        <div className="md:hidden">
+          {/* Text Content at the top for mobile */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="mb-8"
+          >
+            <div className="text-center">
+              <span className="text-green-500 font-medium">About Us</span>
+              <h2 className="text-3xl font-bold text-blue-600 mb-5">
+                Best Cleaning in The UK
+              </h2>
+            </div>
+
+            <p className="text-gray-600 mb-6 leading-relaxed text-sm">
+              At DustOut, we are the UK's top cleaning agency, specializing in
+              industrial cleaning, residential cleaning, fumigation, and
+              landscaping.
+              <br />
+              <br />
+              Our expert team delivers reliable, eco-friendly services that meet
+              the highest standards, transforming spaces with precision and
+              care. Whether it's deep cleaning, pest control, or outdoor
+              makeovers, DustOut ensures cleaner, healthier, and more beautiful
+              environments across the UK.
+            </p>
+
+            <div className="grid grid-cols-2 gap-2 mb-6">
+              {["Reliable", "Fast", "Thorough", "Affordable"].map(
+                (feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center bg-sky-100 rounded-md p-2"
+                  >
+                    <div className="bg-white p-1 rounded-md mr-2">
+                      <CheckIcon className="h-4 w-4 text-blue-600" />
+                    </div>
+                    <span className="font-medium text-blue-600 text-sm">
+                      {feature}
+                    </span>
+                  </div>
+                )
+              )}
+            </div>
+          </motion.div>
+
+          {/* Images below for mobile - simplified layout but keeping the same structure */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-col gap-3"
+          >
+            {/* Top image grid: 2 stacked on left, 1 taller on right */}
+            <div className="grid grid-cols-5 gap-2 h-64">
+              {/* Left column - Two stacked images */}
+              <div className="col-span-2 grid grid-rows-2 gap-2">
+                {/* Top left image */}
+                <div className="rounded-lg overflow-hidden shadow-md">
+                  <div className="relative h-full">
+                    <Image
+                      src="/images/modern-house.png"
+                      alt="Modern House"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Bottom left image */}
+                <div className="rounded-lg overflow-hidden shadow-md">
+                  <div className="relative h-full">
+                    <Image
+                      src="/images/worker-cleaning.png"
+                      alt="Worker Cleaning"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Right column - Taller image */}
+              <div className="col-span-3 rounded-lg overflow-hidden shadow-md">
+                <div className="relative h-full">
+                  <Image
+                    src="/images/men-high-five.png"
+                    alt="Team members high-fiving"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom merged images - Two images that appear as one */}
+            <div className="rounded-lg overflow-hidden shadow-md h-24 bg-blue-400">
+              <div className="grid grid-cols-2 h-full">
+                <div className="relative h-full">
+                  <Image
+                    src="/images/cleaning-tools-1.png"
+                    alt="Cleaning Tools 1"
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+                <div className="relative h-full">
+                  <Image
+                    src="/images/cleaning-tools-2.png"
+                    alt="Cleaning Tools 2"
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Desktop layout - Original side-by-side arrangement */}
+        <div className="hidden md:grid md:grid-cols-2 gap-8 items-start">
           {/* Images Column - Left side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -67,7 +194,7 @@ const AboutSection = () => {
                     />
                   </div>
                 </div>
-                
+
                 {/* Bottom left image */}
                 <div className="rounded-lg overflow-hidden shadow-md">
                   <div className="relative h-full">
@@ -80,7 +207,7 @@ const AboutSection = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Right column - Taller image */}
               <div className="col-span-3 rounded-lg overflow-hidden shadow-md">
                 <div className="relative h-full">
@@ -93,7 +220,7 @@ const AboutSection = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Bottom merged images - Two images that appear as one */}
             <div className="rounded-lg overflow-hidden shadow-md h-32 bg-blue-400">
               {/* This is a special case where we visually merge two images */}
@@ -127,23 +254,39 @@ const AboutSection = () => {
           >
             <div className="sticky top-20">
               <span className="text-green-500 font-medium">About Us</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-6">Best Cleaning in The UK</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-6">
+                Best Cleaning in The UK
+              </h2>
 
               <p className="text-gray-600 mb-8 leading-relaxed">
-                At DustOut, we are the UK's top cleaning agency, specializing in industrial cleaning, residential cleaning, fumigation, and landscaping.
-                <br /><br />
-                Our expert team delivers reliable, eco-friendly services that meet the highest standards, transforming spaces with precision and care. Whether it's deep cleaning, pest control, or outdoor makeovers, DustOut ensures cleaner, healthier, and more beautiful environments across the UK.
+                At DustOut, we are the UK's top cleaning agency, specializing in
+                industrial cleaning, residential cleaning, fumigation, and
+                landscaping.
+                <br />
+                <br />
+                Our expert team delivers reliable, eco-friendly services that
+                meet the highest standards, transforming spaces with precision
+                and care. Whether it's deep cleaning, pest control, or outdoor
+                makeovers, DustOut ensures cleaner, healthier, and more
+                beautiful environments across the UK.
               </p>
 
               <div className="grid grid-cols-2 gap-3 mb-8">
-                {['Reliable', 'Fast', 'Thorough', 'Affordable'].map((feature, index) => (
-                  <div key={index} className="flex items-center bg-sky-100 rounded-md p-3">
-                    <div className="bg-white p-1.5 rounded-md mr-3">
-                      <CheckIcon className="h-5 w-5 text-blue-600" />
+                {["Reliable", "Fast", "Thorough", "Affordable"].map(
+                  (feature, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center bg-sky-100 rounded-md p-3"
+                    >
+                      <div className="bg-white p-1.5 rounded-md mr-3">
+                        <CheckIcon className="h-5 w-5 text-blue-600" />
+                      </div>
+                      <span className="font-medium text-blue-600">
+                        {feature}
+                      </span>
                     </div>
-                    <span className="font-medium text-blue-600">{feature}</span>
-                  </div>
-                ))}
+                  )
+                )}
               </div>
             </div>
           </motion.div>

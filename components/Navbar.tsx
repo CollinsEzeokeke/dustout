@@ -31,16 +31,29 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo - Different sizes for mobile and desktop */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <Image
-                src="/images/dustoutcolor.png"
-                alt="DustOut Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
+              <div className="hidden md:block">
+                {/* Desktop Logo - Original size */}
+                <Image
+                  src="/images/dustoutcolor.png"
+                  alt="DustOut Logo"
+                  width={120}
+                  height={40}
+                  className="h-10 w-auto"
+                />
+              </div>
+              <div className="md:hidden">
+                {/* Mobile Logo - Bigger size */}
+                <Image
+                  src="/images/dustoutcolor.png"
+                  alt="DustOut Logo"
+                  width={150}
+                  height={50}
+                  className="h-14 w-auto"
+                />
+              </div>
             </Link>
           </div>
 
@@ -89,27 +102,27 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - Larger size */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg rounded-lg mx-4 mt-2 overflow-hidden">
-          <div className="py-2">
+        <div className="md:hidden bg-white shadow-lg rounded-lg mx-3 mt-2 overflow-hidden">
+          <div className="py-3">
             <Link
               href="/#contact"
-              className="block px-4 py-3 text-blue-700 hover:bg-blue-50 border-b border-gray-100 font-medium"
+              className="block px-5 py-4 text-blue-700 hover:bg-blue-50 border-b border-gray-100 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>
             <Link
               href="/#about"
-              className="block px-4 py-3 text-blue-700 hover:bg-blue-50 border-b border-gray-100 font-medium"
+              className="block px-5 py-4 text-blue-700 hover:bg-blue-50 border-b border-gray-100 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               About Us
             </Link>
             <Link
               href="/#booking"
-              className="block px-4 py-3 text-blue-700 hover:bg-blue-50 font-medium"
+              className="block px-5 py-4 text-blue-700 hover:bg-blue-50 text-lg font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Book Us
