@@ -65,6 +65,9 @@ const BookingForm = () => {
         />
       </div>
 
+      {/* Dark blue background at the bottom */}
+      <div className="absolute hidden md:block bottom-0 left-0 right-0 h-32 bg-blue-900" aria-hidden="true"></div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Mobile Booking Title (shows only on small screens) */}
         <div className="md:hidden text-center mb-8">
