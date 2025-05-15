@@ -6,76 +6,145 @@ import { CheckIcon } from '@heroicons/react/24/solid';
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-bg-light">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="font-majer text-5xl text-primary-blue mb-2">About Us</h2>
-          <h3 className="font-majer text-3xl md:text-4xl lg:text-5xl text-dark-blue mb-6">Best Cleaning in The UK</h3>
-        </motion.div>
+    <section id="about" className="relative py-20 bg-gradient-to-b from-sky-50 to-white overflow-hidden">
+      {/* Top fade effect for smooth transition */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-sky-50 to-transparent pointer-events-none"></div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      {/* Background bubbles */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/images/bubble.png"
+          alt="Bubble"
+          width={200}
+          height={200}
+          className="absolute top-20 left-10 opacity-40"
+        />
+        <Image
+          src="/images/bubble.png"
+          alt="Bubble"
+          width={100}
+          height={100}
+          className="absolute top-40 right-20 opacity-30"
+        />
+        <Image
+          src="/images/bubble.png"
+          alt="Bubble"
+          width={150}
+          height={150}
+          className="absolute bottom-20 left-1/4 opacity-50"
+        />
+        <Image
+          src="/images/bubble.png"
+          alt="Bubble"
+          width={80}
+          height={80}
+          className="absolute bottom-40 right-1/3 opacity-40"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          {/* Images Column - Left side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="flex flex-col gap-4"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl h-[400px] md:h-[500px]">
-              <Image
-                src="/images/men-high-five.png"
-                alt="Team members high-fiving"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute top-4 right-4 bg-white rounded-lg p-3 shadow-lg">
-                <p className="font-majer text-sm text-gray-600">5000+ Clients</p>
+            {/* Top image grid: 2 stacked on left, 1 taller on right */}
+            <div className="grid grid-cols-5 gap-4 h-80">
+              {/* Left column - Two stacked images */}
+              <div className="col-span-2 grid grid-rows-2 gap-4">
+                {/* Top left image */}
+                <div className="rounded-lg overflow-hidden shadow-md">
+                  <div className="relative h-full">
+                    <Image
+                      src="/images/modern-house.png"
+                      alt="Modern House"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+                
+                {/* Bottom left image */}
+                <div className="rounded-lg overflow-hidden shadow-md">
+                  <div className="relative h-full">
+                    <Image
+                      src="/images/worker-cleaning.png"
+                      alt="Worker Cleaning"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Right column - Taller image */}
+              <div className="col-span-3 rounded-lg overflow-hidden shadow-md">
+                <div className="relative h-full">
+                  <Image
+                    src="/images/men-high-five.png"
+                    alt="Team members high-fiving"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+            
+            {/* Bottom merged images - Two images that appear as one */}
+            <div className="rounded-lg overflow-hidden shadow-md h-32 bg-blue-400">
+              {/* This is a special case where we visually merge two images */}
+              <div className="grid grid-cols-2 h-full">
+                <div className="relative h-full">
+                  <Image
+                    src="/images/cleaning-tools-1.png"
+                    alt="Cleaning Tools 1"
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+                <div className="relative h-full">
+                  <Image
+                    src="/images/cleaning-tools-2.png"
+                    alt="Cleaning Tools 2"
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
 
+          {/* Text Content - Right side */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <p className="text-gray-600 font-medium mb-8 text-base md:text-lg">
-              At DustOut, we are the UK's top cleaning agency, specializing in industrial cleaning, residential cleaning, fumigation, and landscaping.
-              <br /><br />
-              Our expert team delivers reliable, eco-friendly services that meet the highest standards, transforming spaces with precision and care. Whether it's deep cleaning, pest control, or outdoor makeovers, DustOut ensures cleaner, healthier, and more beautiful environments across the UK.
-            </p>
+            <div className="sticky top-20">
+              <span className="text-green-500 font-medium">About Us</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-6">Best Cleaning in The UK</h2>
 
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {['Reliable', 'Fast', 'Thorough', 'Affordable'].map((feature, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <div className="bg-light-blue p-2 rounded-lg">
-                    <CheckIcon className="h-5 w-5 text-primary-blue" />
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                At DustOut, we are the UK's top cleaning agency, specializing in industrial cleaning, residential cleaning, fumigation, and landscaping.
+                <br /><br />
+                Our expert team delivers reliable, eco-friendly services that meet the highest standards, transforming spaces with precision and care. Whether it's deep cleaning, pest control, or outdoor makeovers, DustOut ensures cleaner, healthier, and more beautiful environments across the UK.
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 mb-8">
+                {['Reliable', 'Fast', 'Thorough', 'Affordable'].map((feature, index) => (
+                  <div key={index} className="flex items-center bg-sky-100 rounded-md p-3">
+                    <div className="bg-white p-1.5 rounded-md mr-3">
+                      <CheckIcon className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <span className="font-medium text-blue-600">{feature}</span>
                   </div>
-                  <span className="font-semibold text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-            
-            <div className="flex flex-wrap gap-4">
-              <a 
-                href="#booking" 
-                className="bg-primary-blue text-white px-8 py-3 rounded-full font-majer hover:bg-dark-blue transition-colors"
-              >
-                Book Us
-              </a>
-              <a 
-                href="#services" 
-                className="bg-light-blue text-primary-blue px-8 py-3 rounded-full font-majer hover:bg-cyan transition-colors"
-              >
-                Our Services
-              </a>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
