@@ -35,20 +35,7 @@ const HowToBookUs = () => {
         </h2>
         
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-          {/* Image displays at the end on mobile, start on desktop */}
-          <div className="order-last lg:order-first lg:w-1/2">
-            <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden">
-              <Image
-                src="/images/howToBookUs.png"
-                alt="How to Book Dustout Cleaning Services"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </div>
-          
-          {/* Steps content */}
+          {/* Steps content on the left */}
           <div className="lg:w-1/2 space-y-8">
             {steps.map((step, index) => (
               <div 
@@ -69,6 +56,19 @@ const HowToBookUs = () => {
                 </div>
               </div>
             ))}
+          </div>
+          
+          {/* Image displays at the end on mobile, end on desktop (right side) */}
+          <div className="order-last lg:w-1/2">
+            <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden z-10">
+              <Image
+                src="/images/howToBookUs.png"
+                alt="How to Book Dustout Cleaning Services"
+                fill
+                className="object-contain scale-150 translate-y-[30%] translate-x-[-30%]"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
           </div>
         </div>
       </div>
