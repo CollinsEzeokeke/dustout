@@ -73,17 +73,6 @@ export default function Hero() {
 
       {/* Main Content - Mobile first approach */}
       <div className="relative z-20 mx-auto px-5 pt-24 pb-16 flex flex-col h-screen">
-        {/* Logo for mobile (only visible on very small screens) */}
-        {/* <div className="md:hidden mb-8 mt-8">
-          <Image
-            src="/images/dustoutcolor.png"
-            alt="DustOut Logo"
-            width={140}
-            height={50}
-            className="h-12 w-auto"
-          />
-        </div> */}
-
         {/* Hero Text Content */}
         <div className="flex-1 flex flex-col justify-center mb-6">
           <h1 className="font-bold leading-tight mb-6">
